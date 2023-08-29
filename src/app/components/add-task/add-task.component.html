@@ -1,16 +1,18 @@
-<form class="add-form" (ngSubmit)="onSubmit()">
+<form [formGroup]="addTaskForm" *ngIf="showAddTask" class="add-form" (ngSubmit)="onSubmit()">
   <div class="form-control">
     <label for="text">Task</label>
-    <input type="text" name="text" [(ngModel)]="text" id="text" placeholder="Add Task" />
+    <input type="text" name="text" formControlName="text" id="text" placeholder="Add Task" />
+    <span *ngIf="text && text.invalid && text.touched" [ngStyle]="{'color': 'red'}">This is invalid</span>
   </div>
   <div class="form-control">
       <label for="text">Day & Time</label>
-      <input type="text" name="day" id="day" [(ngModel)]="day" placeholder="Add Day and Time" />
+      <input type="text" name="day" id="day" formControlName="day" placeholder="Add Day and Time" />
+      <span *ngIf="day && day.invalid && day.touched" [ngStyle]="{'color': 'red'}">This is invalid</span>
   </div>
   <div class="form-control">
       <label for="reminder">Set Reminder</label>
-      <input [ngStyle]="{'height': '25px', 'width': '25px'}" [(ngModel)]="reminder" type="checkbox" name="reminder" id="reminder" />
+      <input [ngStyle]="{'height': '25px', 'width': '25px'}" formControlName="reminder" type="checkbox" name="reminder" id="reminder" />
   </div>
 
-  <input type="submit" value="Save Task" class="btn btn-block">
+  <input [disabled]="addTaskForm.invalid" type="submit" value="Save Task" class="btn btn-block">
 </form>

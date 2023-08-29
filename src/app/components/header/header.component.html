@@ -1,2 +1,6 @@
-<h1>{{title.toUpperCase()}}</h1>
-<app-button color="green" text="Add" (btnClick)="toggleAddTask()"></app-button>
+<h1>{{ title.toUpperCase() }}</h1>
+<app-button *ngIf="hasRoute('/')"
+  color="{{ showAddTask ? 'red' : 'green' }}"
+  text="{{ showAddTask ? 'Close' : 'Add' }}"
+  (btnClick)="toggleAddTask()"
+></app-button>
