@@ -14,6 +14,9 @@ import { AddTaskComponent } from './components/add-task/add-task.component';
 import { RouterModule, Routes } from '@angular/router';
 import { AboutComponent } from './components/about/about.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatCheckboxModule } from '@angular/material/checkbox';
 
 const appRoutes: Routes = [
   {
@@ -41,6 +44,9 @@ const appRoutes: Routes = [
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatCheckboxModule,
     RouterModule.forRoot(appRoutes, { enableTracing: true }),
   ],
   providers: [],
